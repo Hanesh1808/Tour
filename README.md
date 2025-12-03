@@ -35,9 +35,9 @@ Tour/
 4. Open your browser and visit `http://localhost:8000`.
 
 ## Credits
-- **Created by**: Karthick Chidambaram S, Jeya Surya K V, Hariharan K S
+- **Created by**: Hanesh S,Dinesh S,Azhagu Velan M
 - **Contact**:
-  - Email: [suryakv1723@gmail.com](mailto:suryakv1723@gmail.com)
+  - Email: [s.hanesh1808@gmail.com](mailto:s.hanesh1808@gmail.com)
   - Phone: [+91 98676 54387](tel:+919867654387)
 
 ## License
