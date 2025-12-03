@@ -48,8 +48,8 @@ This project is open-source and can be used for educational and non-commercial p
 Watch a quick walkthrough of the Discover Coimbatore website:
 
 <video controls width="800">
-  <source src="video/discover-coimbatore.mp4" type="video/mp4">
+  <source src="video/Discover coimbatore.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-Place the video file `discover-coimbatore.mp4` in the `video/` folder within the project directory.
+Place the video file `Discover coimbatore.mp4` in the `video/` folder within the project directory.
