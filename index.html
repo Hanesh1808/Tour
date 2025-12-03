@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Coimbatore | Tourism Guide</title>
+  <style>
+    :root {
+      --bg-dark: #020617;
+      --bg-card: #020617;
+      --bg-section: #020617;
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.15);
+      --secondary: #38bdf8;
+      --text-main: #e5e7eb;
+      --text-soft: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.3);
+      --radius-xl: 22px;
+      --shadow-soft: 0 22px 55px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0f172a 0, #020617 45%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    /* ---------- NAVBAR ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(22px);
+      background: rgba(2, 6, 23, 0.88);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-mark {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #a5f3fc 0, #22c55e 40%, #0ea5e9 100%);
+      box-shadow: 0 0 18px rgba(34, 197, 94, 0.7);
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.7rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-toggle {
+      display: none;
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-soft);
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 2.5rem 0 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(15, 23, 42, 0.7);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 0.9rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 4vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, var(--secondary), var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 0.65rem 1.4rem;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+
+    .btn-primary {
+      background: radial-gradient(circle at 20% 0, #a5f3fc 0, #22c55e 40%, #0ea5e9 100%);
+      color: #022c22;
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 24px 55px rgba(34, 197, 94, 0.6);
+    }
+
+    .btn-ghost {
+      border-color: var(--border-soft);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-soft);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--secondary);
+      color: var(--secondary);
+      transform: translateY(-1px);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      border-radius: 26px;
+      overflow: hidden;
+      background: radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35) 0, #020617 55%);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero-image {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.03);
+      filter: saturate(1.1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.75), transparent);
+    }
+
+    .hero-image-text {
+      position: absolute;
+      bottom: 0.9rem;
+      left: 0.9rem;
+      right: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      font-size: 0.8rem;
+    }
+
+    .hero-image-text strong {
+      font-size: 0.92rem;
+    }
+
+    .hero-chip {
+      background: rgba(15, 23, 42, 0.8);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .floating-card {
+      position: absolute;
+      right: 0.4rem;
+      top: -0.7rem;
+      padding: 0.6rem 0.9rem;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.74rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .floating-card span {
+      font-size: 0.68rem;
+      color: var(--text-soft);
+    }
+
+    .floating-number {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 3.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+      margin: 0 auto;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-card {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1.4rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+      font-size: 0.8rem;
+    }
+
+    .about-tag {
+      border-radius: 16px;
+      padding: 0.7rem 0.75rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.55);
+    }
+
+    .about-tag strong {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .about-map {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      overflow: hidden;
+      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.18), #020617 55%);
+      padding: 1.2rem 1.2rem 1rem;
+    }
+
+    .about-map h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-map p {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      margin-bottom: 0.7rem;
+    }
+
+    .map-embed {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      margin-bottom: 0.6rem;
+    }
+
+    iframe {
+      border: 0;
+      width: 100%;
+      height: 220px;
+    }
+
+    /* ---------- ATTRACTIONS ---------- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+
+    .place-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .place-img-wrap {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+    }
+
+    .place-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.1);
+      transition: transform 0.5s ease;
+    }
+
+    .place-card:hover .place-img-wrap img {
+      transform: scale(1.05);
+    }
+
+    .place-label {
+      position: absolute;
+      left: 0.75rem;
+      top: 0.75rem;
+      padding: 0.22rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .place-body {
+      padding: 0.9rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.86rem;
+    }
+
+    .place-body h3 {
+      font-size: 1rem;
+    }
+
+    .meta {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* ---------- GALLERY ---------- */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      aspect-ratio: 3 / 4;
+    }
+
+    .gallery-item.large {
+      grid-column: span 2;
+      grid-row: span 2;
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      filter: saturate(1.1);
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3.2rem;
+      font-size: 0.75rem;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+      padding: 0.4rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .gallery-caption span {
+      display: inline-block;
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 999px;
+      padding: 0.18rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ---------- PLAN YOUR TRIP ---------- */
+    .plan-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+
+    .plan-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .plan-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-list {
+      list-style: none;
+      font-size: 0.86rem;
+    }
+
+    .plan-list li {
+      margin-bottom: 0.45rem;
+    }
+
+    .pill-inline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      font-size: 0.7rem;
+      margin-left: 0.3rem;
+      color: var(--text-soft);
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      margin-top: 0.8rem;
+    }
+
+    .mini-box {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      padding: 0.7rem 0.8rem;
+    }
+
+    .mini-box strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 1.6rem;
+    }
+
+    form {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .field {
+      margin-bottom: 0.9rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+      color: var(--text-soft);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border-radius: 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.55rem 0.7rem;
+      font-size: 0.86rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
+    }
+
+    .contact-side {
+      padding: 0.5rem 0.2rem;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .contact-card {
+      margin-top: 0.9rem;
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      border: 1px solid var(--border-soft);
+      padding: 0.8rem 0.9rem;
+      font-size: 0.8rem;
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ---------- CREDITS ---------- */
+    .credits-section {
+      padding: 3.5rem 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01) 0%, transparent 100%);
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    .credits-section .credits-card {
+      max-width: 920px;
+      margin: 1.2rem auto 0;
+      background: rgba(255,255,255,0.03);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid rgba(148, 163, 184, 0.12);
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      color: var(--text-main);
+    }
+
+    .credits-section .credits-card h3 {
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+      color: var(--secondary);
+    }
+
+    .credits-section .credits-card strong {
+      display: block;
+      margin: 0.4rem 0 0.8rem;
+      font-size: 1rem;
+      color: var(--text-main);
+    }
+
+    .credits-section a {
+      color: var(--secondary);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding: 1.2rem 0 1.6rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      text-align: center;
+      background: rgba(2, 6, 23, 0.98);
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: var(--secondary);
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .about-grid,
+      .card-grid,
+      .plan-grid,
+      .contact-wrap {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 1.6rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        inset: 100% 0 auto;
+        background: rgba(2, 6, 23, 0.97);
+        flex-direction: column;
+        padding: 0.8rem 1.2rem 1rem;
+        border-bottom: 1px solid var(--border-soft);
+        display: none;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-highlights {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .about-highlights {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="logo-mark"></div>
+        <span>Discover</span> Coimbatore
+      </div>
+      <button class="nav-toggle" id="navToggle">Menu</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#attractions">Places</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#plan">Plan Trip</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero" id="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">
+            <div class="badge-dot"></div>
+            Coimbatore · Western Ghats Gateway
+          </div>
+          <h1 class="hero-title">
+            Explore the green heart of <span>Coimbatore</span>.
+          </h1>
+          <p class="hero-subtitle">
+            From divine temples like Marudamalai &amp; Perur to the iconic
+            Adiyogi statue, waterfalls, museums and lakes – plan your perfect
+            Coimbatore getaway in one place.
+          </p>
+
+          <div class="hero-pills">
+            <div class="pill">Temples &amp; Spiritual Trails</div>
+            <div class="pill">Siruvani Waterfalls</div>
+            <div class="pill">Isha Yoga &amp; Adiyogi</div>
+            <div class="pill">Museums · Lakes · Parks</div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#attractions" class="btn-primary">
+              View Top Places
+              <span>↓</span>
+            </a>
+            <a href="#plan" class="btn-ghost">
+              2–Day Sample Itinerary
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-image">
+              <!-- HERO MAIN IMAGE -->
+              <!-- TODO: Replace the src with your real Coimbatore image path or URL -->
+              <img src="images/shiva.jpg" alt="Adiyogi Statue at Isha Yoga Center, Coimbatore" />
+              <div class="hero-overlay"></div>
+              <div class="hero-image-text">
+                <div>
+                  <strong>Adiyogi Shiva Statue</strong><br />
+                  Isha Yoga Center · Coimbatore
+                </div>
+                <div class="hero-chip">Sunset View • Must Visit</div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card">
+            <span>Top Experiences</span>
+            <div class="floating-number">10+ Major Attractions</div>
+            <span>Temples · Waterfalls · Museums · Parks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">About the city</p>
+          <h2 class="section-title">Why Coimbatore?</h2>
+          <p class="section-subtitle">
+            Known as the "Manchester of South India", Coimbatore is a blend of
+            industry, education, culture and nature – with the Western Ghats
+            forming a stunning backdrop.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Quick City Overview</h3>
+            <p>
+              Coimbatore (Kovai) lies on the banks of the Noyyal River, close to
+              the Kerala border. With pleasant weather for most of the year and
+              easy access to hill stations like Ooty and Valparai, it's a perfect
+              hub for travellers.
+            </p>
+            <p>
+              The city is famous for its <strong>Murugan temples</strong>,
+              <strong>Adiyogi statue</strong>, scenic
+              <strong>Siruvani Dam &amp; Waterfalls</strong>, engineering
+              museums, lakes, textile &amp; jewellery shopping and tasty Kongu
+              food.
+            </p>
+
+            <div class="about-highlights">
+              <div class="about-tag">
+                <strong>Best Time</strong>
+                Oct – Mar for pleasant weather<br />
+                Jul – Sep for greenery.
+              </div>
+              <div class="about-tag">
+                <strong>Ideal Duration</strong>
+                2–3 days for major places<br />
+                4+ days with Ooty / Valparai.
+              </div>
+              <div class="about-tag">
+                <strong>Perfect For</strong>
+                Family trips, temple visits,<br />
+                nature lovers &amp; weekend breaks.
+              </div>
+            </div>
+          </div>
+
+          <div class="about-map">
+            <h3>Coimbatore on the map</h3>
+            <p>
+              Located in western Tamil Nadu, ~500 km from Chennai and ~210 km
+              from Bengaluru. Well-connected by road, rail and air.
+            </p>
+            <div class="map-embed">
+              <!-- Simple Google Maps Embed for Coimbatore -->
+              <iframe
+                loading="lazy"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.061754566592!2d76.954511!3d11.016844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba859bb5d1a1c81%3A0x50c5ff5a6aa14fa5!2sCoimbatore%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v0000000000000"
+                allowfullscreen=""
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <small style="font-size: 0.75rem; color: #9ca3af;">
+              Tip: Zoom out on the map to see nearby hill stations like Ooty,
+              Coonoor and Valparai – popular extensions to a Coimbatore trip.
+            </small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ATTRACTIONS -->
+    <section id="attractions">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Top attractions</p>
+          <h2 class="section-title">Must-visit places in Coimbatore</h2>
+          <p class="section-subtitle">
+            Start with these major spots. You can always add more local temples,
+            lakes and parks based on your time.
+          </p>
+        </div>
+
+        <div class="card-grid">
+          <!-- 1: Marudamalai -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with real Marudamalai image -->
+              <img src="images/marudamalai-temple.jpg" alt="Marudamalai Murugan Temple, Coimbatore" />
+              <div class="place-label">Temple · Hill</div>
+            </div>
+            <div class="place-body">
+              <h3>Marudamalai Murugan Temple</h3>
+              <p class="meta">About 15 km from city center · Hilltop temple</p>
+              <p>
+                Ancient Murugan temple set atop a hill, offering panoramic views
+                of the Western Ghats. Popular for early morning / evening darshan.
+              </p>
+              <p class="tagline">Don't miss: Scenic drive &amp; sunset skies.</p>
+            </div>
+          </article>
+
+          <!-- 2: Adiyogi & Isha -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with real Adiyogi / Isha image -->
+              <img src="images/shiva.jpg" alt="Adiyogi statue and Isha Yoga Center" />
+              <div class="place-label">Spiritual</div>
+            </div>
+            <div class="place-body">
+              <h3>Adiyogi Statue &amp; Isha Yoga Center</h3>
+              <p class="meta">About 30 km from city · At the foothills</p>
+              <p>
+                112-feet tall Adiyogi statue with sound &amp; light show in the
+                evenings. Calm ashram atmosphere, Nandi statue and walking trails.
+              </p>
+              <p class="tagline">Best time: Sunset &amp; evening show.</p>
+            </div>
+          </article>
+
+          <!-- 3: Perur -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with Perur temple image -->
+              <img src="images/perur-pateeswarar.jpg" alt="Perur Pateeswarar Temple" />
+              <div class="place-label">Heritage Temple</div>
+            </div>
+            <div class="place-body">
+              <h3>Perur Pateeswarar Temple</h3>
+              <p class="meta">7–8 km west of city · On Noyyal river bank</p>
+              <p>
+                Famous Shiva temple known for its intricate stone carvings and
+                rich history. A must-visit for architecture &amp; culture lovers.
+              </p>
+              <p class="tagline">Highlight: Magnificent mandapam pillars.</p>
+            </div>
+          </article>
+
+          <!-- 4: Siruvani -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with Siruvani waterfalls image -->
+              <img src="images/siruvani-waterfalls.jpg" alt="Siruvani Waterfalls near Coimbatore" />
+              <div class="place-label">Waterfalls</div>
+            </div>
+            <div class="place-body">
+              <h3>Siruvani Dam &amp; Waterfalls</h3>
+              <p class="meta">Around 35–40 km from Coimbatore</p>
+              <p>
+                Surrounded by forested hills, Siruvani is known for its sweet
+                drinking water and lush green views, especially after monsoon.
+              </p>
+              <p class="tagline">Check: Entry timings &amp; forest permissions.</p>
+            </div>
+          </article>
+
+          <!-- 5: Anuvavi Temple -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- Replaced with Anuvavi temple image -->
+              <img src="images/Anuvavi Temple.jpg" alt="Anuvavi Temple, Coimbatore" />
+              <div class="place-label">Temple</div>
+            </div>
+            <div class="place-body">
+              <h3>Anuvavi Temple</h3>
+              <p class="meta">Anuvavi Hills · Near Coimbatore</p>
+              <p>
+                Scenic hilltop temple known for panoramic views and a peaceful
+                atmosphere. Popular with early-morning visitors and nature lovers.
+              </p>
+              <p class="tagline">Tip: Visit at sunrise for the best views.</p>
+            </div>
+          </article>
+
+          <!-- 6: GD Naidu / GeDee Car Museum -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with car museum image -->
+              <img src="images/gd-naidu-car-museum.jpg" alt="GD Naidu / GeDee Car Museum" />
+              <div class="place-label">Museum</div>
+            </div>
+            <div class="place-body">
+              <h3>GD Naidu &amp; GeDee Car Museum</h3>
+              <p class="meta">Avinashi Road · City area</p>
+              <p>
+                Classic and vintage car collection, plus exhibits on engineering
+                innovations by G.D. Naidu – heaven for automobile lovers.
+              </p>
+              <p class="tagline">Perfect rainy day indoor spot.</p>
+            </div>
+          </article>
+
+          <!-- 7: TNAU Botanical Garden -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with botanical garden image -->
+              <img src="images/tnau-botanical-garden.jpg" alt="TNAU Botanical Garden" />
+              <div class="place-label">Garden</div>
+            </div>
+            <div class="place-body">
+              <h3>TNAU Botanical Gardens</h3>
+              <p class="meta">Inside Tamil Nadu Agricultural University campus</p>
+              <p>
+                Well-maintained gardens with rare plant species, flower beds and
+                shady walking paths – peaceful morning / evening visit.
+              </p>
+              <p class="tagline">Bring: Camera for macro shots.</p>
+            </div>
+          </article>
+
+          <!-- 8: Ukkadam–Valankulam Lake -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with lake image -->
+              <img src="images/ukkadam-lake.jpg" alt="Ukkadam Valankulam Lake" />
+              <div class="place-label">Lake</div>
+            </div>
+            <div class="place-body">
+              <h3>Ukkadam–Valankulam Lake</h3>
+              <p class="meta">Near Ukkadam Bus Stand</p>
+              <p>
+                Large lake with walking paths and views of passing trains over
+                the bridge – lovely during golden hour.
+              </p>
+              <p class="tagline">Ideal for: Evening stroll &amp; photos.</p>
+            </div>
+          </article>
+
+          <!-- 9: Vellingiri Temple -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- Replaced with Vellingiri temple image -->
+              <img src="images/Velingiri temple.jpg" alt="Vellingiri Temple, Coimbatore" />
+              <div class="place-label">Temple</div>
+            </div>
+            <div class="place-body">
+              <h3>Vellingiri (Velingiri) Temple</h3>
+              <p class="meta">Vellingiri Hills · Western Ghats</p>
+              <p>
+                A sacred hill temple and popular trekking-pilgrimage spot offering
+                serene mountain views and devotional atmosphere. Frequently
+                visited during festival seasons by pilgrims and nature lovers.
+              </p>
+              <p class="tagline">Wear good walking shoes — steep but rewarding trek.</p>
+            </div>
+          </article>
+
+          <!-- 10: VOC Park & Zoo (note) -->
+          <article class="place-card">
+            <div class="place-img-wrap">
+              <!-- TODO: replace with VOC Park image -->
+              <img src="images/VOC Park, Coimbatore.jpg" alt="VOC Park, Coimbatore" />
+              <div class="place-label">Park</div>
+            </div>
+            <div class="place-body">
+              <h3>VOC Park &amp; Grounds</h3>
+              <p class="meta">Near Gandhipuram · City center</p>
+              <p>
+                Popular park area for fairs, children's play area and events. Zoo
+                facilities change over time – check local info for latest status.
+              </p>
+              <p class="tagline">Nice break spot within the city.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Photo gallery</p>
+          <h2 class="section-title">Scenes from Coimbatore &amp; around</h2>
+          <p class="section-subtitle">
+            Replace these placeholders with your own photos from each location
+            for a fully customised tourism gallery.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item large">
+            <!-- TODO: replace with wide Coimbatore city / hills image -->
+            <img src="images/Coimbatore city with Western Ghats.jpg" alt="Coimbatore city with Western Ghats" />
+            <div class="gallery-caption">
+              <span>Coimbatore city &amp; Western Ghats</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <!-- TODO: replace -->
+            <img src="images/Steps at Marudamalai Temple.jpg" alt="Steps at Marudamalai Temple" />
+            <div class="gallery-caption">
+              <span>Marudamalai Temple</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <!-- Replaced: Anuvavi Temple -->
+            <img src="images/Anuvavi Temple.jpg" alt="Anuvavi Temple, Coimbatore" />
+            <div class="gallery-caption">
+              <span>Anuvavi Temple</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <!-- TODO: replace -->
+            <img src="images/Siruvani forests.jpg" alt="Siruvani forest and streams" />
+            <div class="gallery-caption">
+              <span>Siruvani forests</span>
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <!-- TODO: replace -->
+            <img src="images/Perur carvings.jpg" alt="Perur temple carvings" />
+            <div class="gallery-caption">
+              <span>Perur carvings</span>
+            </div>
+          </div>
+
+          
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAN YOUR TRIP -->
+    <section id="plan">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Plan your trip</p>
+          <h2 class="section-title">How to explore Coimbatore in 2 days</h2>
+          <p class="section-subtitle">
+            A simple sample itinerary. You can edit this text to match your own
+            packages or suggestions.
+          </p>
+        </div>
+
+        <div class="plan-grid">
+          <div class="plan-card">
+            <h3>Suggested 2–Day Itinerary</h3>
+            <ul class="plan-list">
+              <li>
+                <strong>Day 1 – City &amp; temples</strong><br />
+                Morning: Perur Pateeswarar Temple, then Gass Forest Museum<br />
+                Afternoon: GD Naidu / GeDee Car Museum, shopping at Gandhipuram /
+                Cross-Cut Road<br />
+                Evening: Ukkadam–Valankulam Lake walk.
+              </li>
+              <li>
+                <strong>Day 2 – Hills &amp; spiritual</strong><br />
+                Early morning: Drive to Marudamalai Temple<br />
+                Afternoon: Rest / food in city<br />
+                Evening: Isha Yoga Center &amp; Adiyogi light show.
+              </li>
+              <li>
+                <strong>Extra Day</strong><br />
+                Siruvani Dam &amp; Waterfalls / Kovai Kondattam / trip to Ooty /
+                Valparai.
+              </li>
+            </ul>
+
+            <div class="mini-grid">
+              <div class="mini-box">
+                <strong>Best Season</strong>
+                Oct – Mar
+                <span class="pill-inline">Pleasant &amp; less humid</span>
+              </div>
+              <div class="mini-box">
+                <strong>Languages</strong>
+                Tamil is primary; English widely understood.
+              </div>
+              <div class="mini-box">
+                <strong>Food to Try</strong>
+                Kovai biryani, filter coffee, ghee roast dosa, Banana chips, local
+                sweets.
+              </div>
+              <div class="mini-box">
+                <strong>Stay Areas</strong>
+                Gandhipuram, RS Puram, Avinashi Road – easy to connect most
+                attractions.
+              </div>
+            </div>
+          </div>
+
+          <div class="plan-card">
+            <h3>How to Reach Coimbatore</h3>
+            <ul class="plan-list">
+              <li>
+                <strong>By Air:</strong> Coimbatore International Airport (CJB) with
+                flights from Chennai, Bengaluru, Hyderabad, Delhi, Mumbai &amp;
+                select international routes.
+              </li>
+              <li>
+                <strong>By Train:</strong> Coimbatore Junction is a major railway
+                hub with trains from Chennai, Bengaluru, Kochi, Trivandrum and
+                beyond.
+              </li>
+              <li>
+                <strong>By Road:</strong> Excellent highways connect Coimbatore to
+                cities like Chennai, Bengaluru, Kochi, Madurai, Salem and Erode.
+              </li>
+              <li>
+                <strong>Local Transport:</strong> Buses, autos, cabs, app-based
+                taxis. For Siruvani / Isha / Marudamalai, hiring a cab is most
+                convenient.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-kicker">Contact</p>
+          <h2 class="section-title">Plan your Coimbatore tour</h2>
+          <p class="section-subtitle">
+            Use this section as a contact form for your travel agency, tourism
+            information center or personal blog.
+          </p>
+        </div>
+
+        <div class="contact-wrap">
+          <form>
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="days">Trip Duration</label>
+              <select id="days">
+                <option>2 days</option>
+                <option>3 days</option>
+                <option>4–5 days</option>
+                <option>More than a week</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message / Requirements</label>
+              <textarea
+                id="message"
+                placeholder="Tell us your travel dates, number of people and places you want to cover..."
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Enquiry</button>
+          </form>
+
+          <div class="contact-side">
+            <p>
+              <strong>Customise this area</strong> with your real phone number,
+              office address, WhatsApp contact or social media links.
+            </p>
+            <div class="contact-card">
+              <strong>Sample Contact Info</strong>
+              Coimbatore Tourism Helpdesk<br />
+              Phone: +91-98765-43210<br />
+              Email: info@discovercoimbatore.com<br />
+              Working hours: 9:00 AM – 7:00 PM (IST)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- CREDITS & THANK YOU -->
+  <section id="credits" class="credits-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Credits & Thank You</h2>
+      </div>
+
+      <p style="max-width:900px; margin: 0.4rem auto 0; color: var(--text-soft);">
+        This guide was created with the aim of promoting the spiritual,
+        cultural, and historical significance of the regions of Coimbatore. We thank the local communities, historians, and custodians
+        of heritage whose traditions continue to inspire exploration and
+        discovery.
+      </p>
+
+      <p style="max-width:900px; margin: 0.6rem auto 0; color: var(--text-soft);">
+        Thank you for joining us on this journey — may your travels bring you
+        joy, wisdom, and unforgettable memories.
+      </p>
+
+      <div class="credits-card" aria-label="Credits card">
+        <h3>Created by</h3>
+        <strong>Hanesh S,Dinesh S,Azhagu velan M</strong>
+        <p style="color: var(--text-soft); margin-bottom: 0.6rem;">
+          This site showcases heritage and places to visit around Coimbatore
+        </p>
+
+        <h4 style="margin: 0.2rem 0 0.2rem; color: var(--secondary);">Contact</h4>
+        <p style="color: var(--text-soft);">
+          Email: <a href="mailto:s.hanesh1808@gmail.com">s.hanesh1808@gmail.com</a><br />
+          Phone: <a href="tel:+919867654387">+91 98676 54387</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    &copy; <span id="year"></span> Discover Coimbatore. Built with ❤ for travellers.
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    // Auto-update year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
