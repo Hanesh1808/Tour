@@ -47,6 +47,6 @@ This project is open-source and can be used for educational and non-commercial p
 
 Watch a quick walkthrough of the Discover Coimbatore website:
 
-[![Discover Coimbatore Video](https://youtu.be/rdM5n2IFXOc)](https://youtu.be/rdM5n2IFXOc)
+[![Discover Coimbatore](https://youtu.be/rdM5n2IFXOc)](https://youtu.be/rdM5n2IFXOc)
 
 Click the thumbnail above to view the video on YouTube.
