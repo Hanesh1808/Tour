@@ -52,4 +52,4 @@ Watch a quick walkthrough of the Discover Coimbatore website:
   Your browser does not support the video tag.
 </video>
 
-Place the video file `Discover%20coimbatore.mp4` in the `images/` folder within the project directory.
+Place the video file `images/Discover%20coimbatore.mp4` in the `images/` folder within the project directory.
