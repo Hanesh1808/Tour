@@ -35,7 +35,7 @@ Tour/
 4. Open your browser and visit `http://localhost:8000`.
 
 ## Credits
-- **Created by**: Hanesh S,Dinesh S,Azhagu Velan M
+- **Created by**: Hanesh S,Dinesh S,Inbaraj P
 - **Contact**:
   - Email: [s.hanesh1808@gmail.com](mailto:s.hanesh1808@gmail.com)
   - Phone: [+91 98676 54387](tel:+919867654387)
