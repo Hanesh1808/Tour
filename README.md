@@ -45,11 +45,6 @@ This project is open-source and can be used for educational and non-commercial p
 
 ## Video Overview
 
-Watch a quick walkthrough of the Discover Coimbatore website:
+Watch a quick walkthrough of the Discover Coimbatore website on YouTube:
 
-<video controls width="800">
-  <source src="images/Discover%20coimbatore.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-Place the video file `images/Discover%20coimbatore.mp4` in the `images/` folder within the project directory.
+[Watch on YouTube](https://youtu.be/rdM5n2IFXOc)
